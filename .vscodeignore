@@ -1,0 +1,6 @@
+images/
+media/*.psd
+node_modules/
+.vscode/
+.git/
+*.vsix

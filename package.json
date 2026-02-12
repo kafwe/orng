@@ -1,0 +1,47 @@
+{
+  "name": "orng-vscode",
+  "displayName": "orng for VS Code",
+  "publisher": "kafwe",
+  "description": "Cloudflare-inspired orng light + dark themes for Visual Studio Code.",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "cloudflare",
+    "workers",
+    "dark",
+    "light"
+  ],
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kafwe/orng-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kafwe/orng-vscode/issues"
+  },
+  "license": "Apache-2.0",
+  "contributes": {
+    "themes": [
+      {
+        "label": "orng Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/orng-dark-color-theme.json"
+      },
+      {
+        "label": "orng Light",
+        "uiTheme": "vs",
+        "path": "./themes/orng-light-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "package": "npx vsce package",
+    "publish": "npx vsce publish"
+  }
+}

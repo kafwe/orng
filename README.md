@@ -1,26 +1,40 @@
-# Cloudflare "orng" Themes for VS Code
+# orng for VS Code
 
-[![VS Code Extension](https://img.shields.io/badge/-VS_Code_Extension-blue?style=flat&logo=visual-studio-code&logoColor=white&labelColor=111111&color=084CCF)](https://marketplace.visualstudio.com/items?itemName=kafwe.orng-vscode)
+The Cloudflare palette, in your editor. A faithful port of [orng for Zed](https://github.com/elithrar/orng-zed), with dark and light themes inspired by [workers.dev](https://workers.dev/).
 
-`orng` is a Cloudflare-inspired set of themes (dark + light) for [Visual Studio Code](https://code.visualstudio.com/) and based on the color scheme used @ [workers.dev](https://workers.dev/). Ported from the [orng Zed theme](https://github.com/elithrar/orng-zed).
+[![Install from the VS Code Marketplace](https://img.shields.io/badge/VS_Code-Install_orng-EC5B2B?style=flat&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=kafwe.orng-vscode)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-808080)](LICENSE)
 
-## What does it look like?
+Orange keywords. Blue strings. Gold types. Both themes keep the original Zed colors, italic comments, and neutral brackets, with matching colors throughout the editor, terminal, and surrounding interface.
 
-### Dark mode
+## orng Dark
 
-![Dark mode](images/dark_mode.png)
+Deep charcoal surfaces with warm orange accents.
 
-### Light mode
+![orng Dark: orange keywords, blue strings, gold types, and italic gray comments on charcoal](images/dark_mode.png)
 
-![Light mode](images/light_mode.png)
+## orng Light
 
-## Installation & Usage
+A warm cream editor with white tabs and title bar.
 
-1. Install the theme via the Extensions marketplace (`cmd+shift+x`) -> filter for `orng`.
-2. Open the theme selector (`cmd+k, cmd+t`)
-3. Select `orng Dark` or `orng Light`
+![orng Light: the same TypeScript example in the original Zed palette on cream](images/light_mode.png)
 
-Manually: open your VS Code user settings.json and add this config:
+*Previews are rendered from the theme files. Appearance in VS Code can vary with your font and language extensions.*
+
+## Get started
+
+Requires **VS Code 1.85 or later**.
+
+1. [Install orng from the Marketplace](https://marketplace.visualstudio.com/items?itemName=kafwe.orng-vscode).
+2. Open the Command Palette (`Cmd+Shift+P` on macOS / `Ctrl+Shift+P` on Windows and Linux) and run **Preferences: Color Theme**.
+3. Choose **orng Dark** or **orng Light**.
+
+To switch themes later, use `Cmd+K Cmd+T` on macOS or `Ctrl+K Ctrl+T` on Windows and Linux, pressing each shortcut in sequence.
+
+<details>
+<summary>Choose a theme in settings.json</summary>
+
+Add this setting to your existing VS Code settings:
 
 ```json
 {
@@ -28,12 +42,37 @@ Manually: open your VS Code user settings.json and add this config:
 }
 ```
 
-## License
+Use `"orng Light"` for light mode.
 
-Apache-2.0. See [LICENSE](LICENSE).
+</details>
 
-## About
+## Why I made this
 
-A Cloudflare-themed, well, theme... for Visual Studio Code.
+I loved using [orng in Zed](https://github.com/elithrar/orng-zed), but needed VS Code at work for Copilot and the skills and tools in its ecosystem. So I recreated the theme for VS Code to keep the look I liked in the editor I needed.
 
-[workers.dev/](https://workers.dev/)
+## Feedback
+
+Found a color that looks out of place? [Open an issue](https://github.com/kafwe/orng/issues) with the theme name, language, a small code sample, and a screenshot.
+
+## Contributing
+
+With Node.js installed, run:
+
+```sh
+npm run build
+npm test
+```
+
+Make changes in [the conversion script](scripts/build-themes.mjs), then rebuild. The JSON files in `themes/` are generated; `npm test` checks for unmapped syntax categories and differences from the generated output.
+
+To preview changes:
+
+1. Open this repository in VS Code.
+2. Select **Run Extension** in Run and Debug and press `F5`.
+3. Choose an orng theme in the new window and open the [TypeScript](test/sample.tsx), [CSS](test/sample.css), or [Markdown](test/sample.md) sample.
+
+Run `npm run package` to create a VSIX, then use **Extensions: Install from VSIX…** to install it locally.
+
+## Credits and license
+
+Original [orng Zed theme](https://github.com/elithrar/orng-zed) by Matt Silverlock. Upstream copyright © 2025 Cloudflare, Inc. Licensed under [Apache-2.0](LICENSE).

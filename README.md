@@ -1,11 +1,11 @@
 # orng for VS Code
 
-The Cloudflare palette, in your editor. A faithful port of [orng for Zed](https://github.com/elithrar/orng-zed), with dark and light themes inspired by [workers.dev](https://workers.dev/).
+The Cloudflare palette, in your editor. A VS Code recreation of [orng for Zed](https://github.com/elithrar/orng-zed), with dark and light themes inspired by [workers.dev](https://workers.dev/).
 
 [![Install from the VS Code Marketplace](https://img.shields.io/badge/VS_Code-Install_orng-EC5B2B?style=flat&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=kafwe.orng-vscode)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-808080)](LICENSE)
 
-Orange keywords. Blue strings. Gold types. Both themes keep the original Zed colors, italic comments, and neutral brackets, with matching colors throughout the editor, terminal, and surrounding interface.
+Orange keywords. Blue strings. Gold types. Both themes keep the Zed theme's character, italic comments, and neutral brackets, with stronger line numbers, clearer light-theme syntax, and readable diff highlights for VS Code.
 
 ## orng Dark
 
@@ -17,7 +17,7 @@ Deep charcoal surfaces with warm orange accents.
 
 A warm cream editor with white tabs and title bar.
 
-![orng Light: the same TypeScript example in the original Zed palette on cream](images/light_mode.png)
+![orng Light: TypeScript on a cream background](images/light_mode.png)
 
 *Previews are rendered from the theme files. Appearance in VS Code can vary with your font and language extensions.*
 

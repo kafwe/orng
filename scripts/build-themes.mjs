@@ -147,8 +147,20 @@ function tokenStyle(entry) {
   };
 }
 
+// Readability adjustments for VS Code; the upstream snapshot stays unmodified.
+const lightSyntaxColors = {
+  '#8A8A8A': '#626262', '#EC5B2B': '#A83D17', '#C94D24': '#A43E1D',
+  '#B0851F': '#7A5A10', '#318795': '#24616B', '#679CD9': '#30649C',
+  '#D1383D': '#B32930', '#0062D1': '#005BBF', '#A0A0A0': '#626262',
+};
+
 for (const theme of upstream.themes) {
   const s = theme.style;
+  const syntaxStyle = entry => {
+    const style = tokenStyle(entry);
+    if (theme.appearance === 'light') style.foreground = lightSyntaxColors[style.foreground] ?? style.foreground;
+    return style;
+  };
   assert.deepEqual(Object.keys(scopes).sort(), Object.keys(s.syntax).sort(), 'Every Zed syntax category must be mapped');
   const colors = {};
   for (const [key, targets] of Object.entries(ui)) {
@@ -178,15 +190,17 @@ for (const theme of upstream.themes) {
   for (const key of ['diffEditor.insertedTextBackground', 'diffEditor.removedTextBackground']) {
     colors[key] = `${colors[key].slice(0, 7)}26`;
   }
+  colors['editorLineNumber.foreground'] = theme.appearance === 'dark' ? '#8A919E' : '#68615B';
+  if (theme.appearance === 'light') colors['editor.lineHighlightBackground'] = '#EDE0D4';
 
   const output = {
     $schema: 'vscode://schemas/color-theme', name: theme.name, type: theme.appearance,
     semanticHighlighting: true, colors,
     semanticTokenColors: Object.fromEntries(Object.entries(semantic).map(([selector, category]) => {
-      const { foreground, fontStyle } = tokenStyle(s.syntax[category]);
+      const { foreground, fontStyle } = syntaxStyle(s.syntax[category]);
       return [selector, { foreground, italic: fontStyle.includes('italic'), bold: fontStyle.includes('bold'), underline: false }];
     })),
-    tokenColors: Object.entries(scopes).map(([category, scope]) => ({ name: category, scope, settings: tokenStyle(s.syntax[category]) })),
+    tokenColors: Object.entries(scopes).map(([category, scope]) => ({ name: category, scope, settings: syntaxStyle(s.syntax[category]) })),
   };
   const path = new URL(`themes/orng-${theme.appearance}-color-theme.json`, root);
   const content = JSON.stringify(output, null, 2) + '\n';

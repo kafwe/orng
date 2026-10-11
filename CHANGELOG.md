@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Increased line-number contrast in both themes.
+- Darkened faint light-theme syntax colors and added a visible active-line background.
+
 ## 0.1.2
 
 - Improved diff readability in both themes with softer highlights while preserving the original Zed red and blue colors.

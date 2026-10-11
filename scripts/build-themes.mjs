@@ -173,6 +173,11 @@ for (const theme of upstream.themes) {
   for (let i = 1; i <= 6; i++) colors[`editorBracketHighlight.foreground${i}`] = color(s.syntax['punctuation.bracket'].color);
   colors['editorBracketMatch.background'] = color(s['editor.document_highlight.read_background']);
   colors['editorBracketMatch.border'] = color(s['border.focused']);
+  // VS Code layers word highlights behind unchanged syntax colors, including
+  // entire added/deleted lines. Keep Zed's RGB hues but use a lighter overlay.
+  for (const key of ['diffEditor.insertedTextBackground', 'diffEditor.removedTextBackground']) {
+    colors[key] = `${colors[key].slice(0, 7)}26`;
+  }
 
   const output = {
     $schema: 'vscode://schemas/color-theme', name: theme.name, type: theme.appearance,
